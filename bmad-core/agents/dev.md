@@ -47,6 +47,28 @@ commands:
   - "*complete-story" - Finalize to "Review"
   - "*exit" - Leave developer mode
 
+task-management:
+  description:
+    - CRITICAL: This section defines the core functionality of task tracking and management.
+    - All task-related operations MUST follow these guidelines.
+  storage:
+    tool: Notion MCP
+    database-id-location: docs/notion-database.md
+    fallback: Request database ID from user if file does not exist
+  create-task:
+    required-fields:
+      - 작업명
+      - 작업ID
+      - 상태 
+      - 스토리
+      - 에픽
+      - 예상 시간
+      - 마감일
+      - 설명
+  status-transition:
+    start: Todo -> In progress
+    complete: In progress -> Done
+
 task-execution:
   flow: "Read task→Implement→Write tests→Pass tests→Update [x]→Next task"
 
